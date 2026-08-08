@@ -1,0 +1,11 @@
+{
+  "name": "quant-academy",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "description": "量化学堂（GitHub Pages 静态站点）",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check src/cloud-sync/app.js && node --check src/cloud-sync/gist.js && node --check src/cloud-sync/model.js && node --check src/learning/app.js && node --check src/learning/catalog.js && node --check src/learning/model.js"
+  }
+}

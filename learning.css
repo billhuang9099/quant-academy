@@ -1,0 +1,85 @@
+.qa-learning-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line, #d9dbd4);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: var(--green, #21483d);
+  background: #fff;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 750;
+}
+.qa-learning-button i { font-style: normal; font-size: 14px; }
+.qa-learning-button b { position: absolute; top: -6px; right: -5px; min-width: 18px; height: 18px; border-radius: 999px; padding: 0 4px; color: #fff; background: #e06f4e; font-size: 9px; line-height: 18px; text-align: center; }
+.qa-learning-backdrop[hidden] { display: none; }
+.qa-learning-backdrop { position: fixed; inset: 0; z-index: 190; display: grid; place-items: center; padding: 18px; background: rgba(8, 20, 16, .73); backdrop-filter: blur(8px); }
+.qa-learning-open { overflow: hidden; }
+.qa-learning-modal { position: relative; width: min(1120px, 100%); max-height: calc(100vh - 36px); overflow-y: auto; border-radius: 26px; color: #17231e; background: #f7f6f0; box-shadow: 0 34px 100px rgba(0,0,0,.32); font-family: var(--font-geist-sans, system-ui, sans-serif); }
+.qa-learning-close { position: sticky; z-index: 3; top: 16px; float: right; display: grid; place-items: center; width: 38px; height: 38px; margin: 16px 16px -54px 0; border: 0; border-radius: 50%; color: #58645f; background: rgba(255,255,255,.9); cursor: pointer; font-size: 22px; }
+.qa-learning-hero { display: grid; grid-template-columns: 1fr auto; gap: 35px; align-items: end; padding: 58px 52px 46px; color: #fff; background: #10271f; }
+.qa-learning-hero > div > span, .qa-learning-heading span { color: #b6dc63; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.qa-learning-hero h2 { max-width: 680px; margin: 13px 0 11px; font-size: clamp(35px, 5vw, 62px); line-height: 1.03; letter-spacing: -.06em; }
+.qa-learning-hero p { max-width: 680px; margin: 0; color: #aab9b3; font-size: 12px; line-height: 1.7; }
+.qa-learning-metrics { display: grid; grid-template-columns: repeat(3, 92px); gap: 8px; }
+.qa-learning-metrics article { padding: 15px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(255,255,255,.06); }
+.qa-learning-metrics strong { display: block; color: #c7ea75; font-size: 25px; }
+.qa-learning-metrics span { display: block; margin-top: 7px; color: #9eb0a9; font-size: 9px; }
+.qa-learning-section { padding: 46px 52px; }
+.qa-learning-section.tint { background: #ecebe3; }
+.qa-learning-section.mistakes { color: #fff; background: #172720; }
+.qa-learning-heading { display: flex; justify-content: space-between; gap: 25px; align-items: end; margin-bottom: 24px; }
+.qa-learning-heading h3 { margin: 8px 0 0; font-size: 28px; letter-spacing: -.04em; }
+.qa-learning-heading p { max-width: 430px; margin: 0; color: #69736f; font-size: 10px; line-height: 1.6; }
+.qa-mastery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.qa-mastery-card { border: 1px solid #dedfd8; border-top: 3px solid var(--module); border-radius: 14px; padding: 17px; background: #fffefa; }
+.qa-mastery-card > div { display: flex; justify-content: space-between; align-items: baseline; }
+.qa-mastery-card span { font-size: 11px; font-weight: 750; }
+.qa-mastery-card strong { color: var(--module); font-size: 22px; }
+.qa-mastery-card > i { display: block; height: 5px; margin-top: 14px; overflow: hidden; border-radius: 999px; background: #ecece6; }
+.qa-mastery-card > i b { display: block; height: 100%; background: var(--module); }
+.qa-mastery-card p { margin: 11px 0 0; color: #7b837f; font-size: 9px; }
+.qa-prep-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.qa-prep-card { position: relative; border: 1px solid #d9dad3; border-radius: 17px; padding: 23px; background: #fffefa; }
+.qa-prep-card.done { border-color: #abc75f; box-shadow: inset 0 0 0 1px #abc75f; }
+.qa-prep-head { display: flex; justify-content: space-between; color: #9a6a3c; font: 9px var(--font-geist-mono, ui-monospace, monospace); }
+.qa-prep-card h3 { margin: 13px 0 7px; font-size: 18px; }
+.qa-prep-card > p { min-height: 34px; margin: 0; color: #67716d; font-size: 10px; line-height: 1.6; }
+.qa-prep-card pre { margin: 17px 0; overflow-x: auto; border-radius: 12px; padding: 15px; color: #c9eb7b; background: #14271f; font: 9px/1.65 var(--font-geist-mono, ui-monospace, monospace); }
+.qa-prep-task { border-left: 3px solid #e37651; padding-left: 13px; }
+.qa-prep-task strong { font-size: 9px; }
+.qa-prep-task p { margin: 5px 0 0; color: #626d68; font-size: 9px; line-height: 1.55; }
+.qa-prep-card > button { margin-top: 17px; border: 1px solid #bcc1b8; border-radius: 999px; padding: 8px 12px; color: #294b40; background: transparent; cursor: pointer; font-size: 9px; font-weight: 750; }
+.qa-prep-card.done > button { border-color: #b6d262; background: #cbe979; }
+.qa-review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.qa-review-card { border: 1px solid #dedfd8; border-radius: 15px; padding: 20px; background: #fffefa; }
+.qa-review-card > span { color: #b45f42; font-size: 9px; font-weight: 750; }
+.qa-review-card h3 { margin: 10px 0 8px; font-size: 14px; line-height: 1.5; }
+.qa-review-card p { color: #78817d; font-size: 9px; }
+.qa-review-card div { display: flex; gap: 8px; margin-top: 14px; }
+.qa-review-card button { border: 1px solid #c8cbc4; border-radius: 999px; padding: 8px 11px; background: transparent; cursor: pointer; font-size: 9px; }
+.qa-review-card button.primary { border-color: #23483d; color: #fff; background: #23483d; }
+.qa-empty { grid-column: 1 / -1; border: 1px dashed #c8cbc4; border-radius: 14px; padding: 28px; color: #7a837f; font-size: 10px; text-align: center; }
+.qa-mistake-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.qa-mistake-list li { border: 1px solid rgba(255,255,255,.12); border-radius: 13px; padding: 16px; background: rgba(255,255,255,.04); }
+.qa-mistake-list li > span { color: #c9e976; font-size: 8px; }
+.qa-mistake-list p { margin: 7px 0; color: #d4dcd8; font-size: 10px; line-height: 1.5; }
+.qa-mistake-list small { color: #84968f; font-size: 8px; }
+@media (max-width: 900px) {
+  .qa-learning-button span { display: none; }
+  .qa-learning-button { justify-content: center; width: 34px; height: 34px; padding: 0; }
+  .qa-learning-hero { grid-template-columns: 1fr; }
+  .qa-mastery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+  .qa-learning-backdrop { padding: 8px; }
+  .qa-learning-modal { max-height: calc(100vh - 16px); border-radius: 19px; }
+  .qa-learning-hero, .qa-learning-section { padding: 36px 20px; }
+  .qa-learning-hero h2 { font-size: 38px; }
+  .qa-learning-metrics { grid-template-columns: repeat(3, 1fr); }
+  .qa-learning-heading { display: block; }
+  .qa-learning-heading p { margin-top: 10px; }
+  .qa-mastery-grid, .qa-prep-grid, .qa-review-grid, .qa-mistake-list { grid-template-columns: 1fr; }
+}
