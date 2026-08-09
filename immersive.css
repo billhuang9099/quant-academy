@@ -1,0 +1,336 @@
+body.qa-immersive-active {
+  height: 100dvh;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+body.qa-immersive-active .app-shell {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body.qa-immersive-active .workspace {
+  height: calc(100dvh - 76px);
+  min-height: 0;
+  overflow: hidden;
+}
+
+body.qa-immersive-active .module-rail,
+body.qa-immersive-active .main-content {
+  height: 100%;
+  min-height: 0;
+}
+
+body.qa-immersive-active .module-rail { overflow-y: auto; }
+body.qa-immersive-active .main-content { overflow: hidden; }
+
+.module-view.qa-immersive {
+  --focus-green: #173f31;
+  --focus-lime: #c9ee67;
+  --focus-orange: #ff7658;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 0, rgba(201, 238, 103, .16), transparent 24%),
+    #f4f3ee;
+}
+
+.qa-immersive-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+  min-height: 70px;
+  padding: 10px 24px;
+  color: #fff;
+  background: var(--focus-green);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.qa-focus-mark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 8px;
+  letter-spacing: .14em;
+}
+
+.qa-focus-mark i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--focus-lime);
+  box-shadow: 0 0 0 5px rgba(201, 238, 103, .13);
+}
+
+.qa-focus-title { display: flex; flex-direction: column; min-width: 0; }
+.qa-focus-title small { color: #a9bdb4; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
+.qa-focus-title strong { overflow: hidden; margin-top: 3px; font-size: 15px; text-overflow: ellipsis; white-space: nowrap; }
+.qa-focus-status { display: flex; flex-direction: column; align-items: flex-end; }
+.qa-focus-status span { color: #9fb4aa; font-size: 8px; }
+.qa-focus-status strong { margin-top: 3px; color: var(--focus-lime); font-size: 12px; }
+
+.qa-exit-immersive {
+  min-height: 34px;
+  padding: 0 13px;
+  color: #d5e2dc;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.qa-exit-immersive:hover { color: #fff; background: rgba(255,255,255,.14); }
+
+.qa-immersive-stages {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 7px;
+  padding: 9px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: rgba(255,255,255,.84);
+  border-bottom: 1px solid var(--line, #dedfd8);
+  backdrop-filter: blur(14px);
+}
+
+.qa-immersive-stages::-webkit-scrollbar { display: none; }
+
+.qa-immersive-stages button {
+  display: flex;
+  flex: 1 0 62px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 10px;
+  color: var(--muted, #68736e);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 9px;
+}
+
+.qa-immersive-stages button i {
+  color: #a8ada9;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 7px;
+  font-style: normal;
+}
+
+.qa-immersive-stages button:hover { background: #f0f2ea; }
+.qa-immersive-stages button.active { color: #fff; background: var(--focus-green); border-color: var(--focus-green); }
+.qa-immersive-stages button.active i { color: var(--focus-lime); }
+
+.qa-immersive > .module-hero,
+.qa-immersive > .mobile-module-select,
+.qa-immersive > .orientation-grid,
+.qa-immersive > .lesson-layout,
+.qa-immersive > .concept-section,
+.qa-immersive > .case-section,
+.qa-immersive > .quiz-section { display: none !important; }
+
+.qa-immersive[data-immersive-stage="overview"] > .module-hero {
+  display: flex !important;
+  flex: 0 0 auto;
+  min-height: 225px;
+  padding: 28px 38px 24px;
+}
+
+.qa-immersive[data-immersive-stage="overview"] > .module-hero .module-breadcrumb { margin-bottom: 25px; }
+.qa-immersive[data-immersive-stage="overview"] > .module-hero h1 { font-size: clamp(42px, 6vh, 66px); }
+
+.qa-immersive[data-immersive-stage="overview"] > .orientation-grid {
+  display: grid !important;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 18px 30px;
+  overflow-y: auto;
+  align-content: start;
+}
+
+.qa-immersive[data-immersive-stage^="lesson-"] > .lesson-layout {
+  display: grid !important;
+  flex: 1 1 auto;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 18px;
+  min-height: 0;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 18px 24px;
+  overflow: hidden;
+}
+
+.qa-immersive .lesson-list {
+  position: static;
+  min-height: 0;
+  padding: 4px 8px 4px 0;
+  overflow-y: auto;
+}
+
+.qa-immersive .lesson-content {
+  height: 100%;
+  min-height: 0;
+  padding: clamp(24px, 4vh, 42px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 18px 55px rgba(23, 39, 32, .08);
+}
+
+.qa-immersive[data-immersive-stage="concepts"] > .concept-section,
+.qa-immersive[data-immersive-stage^="quiz-"] > .quiz-section {
+  display: block !important;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  padding: 28px 34px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.qa-immersive[data-immersive-stage="concepts"] > .concept-section > *,
+.qa-immersive[data-immersive-stage^="quiz-"] > .quiz-section > * {
+  width: min(1050px, 100%);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.qa-immersive[data-immersive-stage="case"] > .case-section {
+  display: grid !important;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 28px 34px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.qa-immersive[data-immersive-stage^="quiz-"] .questions { display: block; }
+.qa-immersive[data-immersive-stage^="quiz-"] .question-card { display: none; }
+.qa-immersive[data-immersive-stage^="quiz-"] .question-card.qa-immersive-current-question {
+  display: block;
+  max-width: 760px;
+  min-height: 330px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vh, 38px);
+  box-shadow: 0 18px 60px rgba(23, 39, 32, .08);
+}
+
+.qa-immersive-footer {
+  display: grid;
+  flex: 0 0 auto;
+  grid-template-columns: minmax(130px, 190px) minmax(140px, 300px) minmax(160px, 220px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 68px;
+  padding: 9px 24px;
+  background: #fff;
+  border-top: 1px solid var(--line, #dedfd8);
+  box-shadow: 0 -12px 32px rgba(23, 39, 32, .05);
+}
+
+.qa-stage-direction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 16px;
+  color: var(--foreground, #17231e);
+  background: transparent;
+  border: 1px solid var(--line, #dedfd8);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.qa-stage-direction b { font-size: 10px; }
+.qa-stage-direction span { font-size: 16px; }
+.qa-stage-direction.primary { color: #fff; background: var(--focus-green); border-color: var(--focus-green); }
+.qa-stage-direction.primary span { color: var(--focus-lime); }
+.qa-stage-direction:disabled { cursor: default; opacity: .35; }
+
+.qa-stage-meter > div { display: flex; justify-content: space-between; color: var(--muted, #68736e); font-size: 8px; }
+.qa-stage-meter > i { display: block; height: 5px; margin-top: 7px; overflow: hidden; background: #e6e8e1; border-radius: 999px; }
+.qa-stage-meter > i b { display: block; height: 100%; background: linear-gradient(90deg, var(--focus-green), #80aa49); border-radius: inherit; transition: width .25s ease; }
+
+@media (max-width: 900px) {
+  body.qa-immersive-active .workspace { height: calc(100dvh - 76px); }
+  .qa-immersive-head { grid-template-columns: auto minmax(0,1fr) auto; }
+  .qa-focus-status { display: none; }
+  .qa-immersive[data-immersive-stage^="lesson-"] > .lesson-layout { grid-template-columns: 190px minmax(0, 1fr); }
+}
+
+@media (max-width: 680px) {
+  body.qa-immersive-active .workspace { height: calc(100dvh - 64px); }
+  body.qa-immersive-active .mobile-nav { display: none !important; }
+  body.qa-immersive-active .header-progress { display: none; }
+  .qa-immersive-head { min-height: 58px; gap: 9px; padding: 8px 12px; }
+  .qa-focus-mark { display: none; }
+  .qa-focus-title strong { font-size: 13px; }
+  .qa-exit-immersive { min-height: 32px; padding: 0 10px; }
+  .qa-immersive-stages { gap: 5px; padding: 7px 10px; }
+  .qa-immersive-stages button { flex: 0 0 auto; min-height: 32px; padding: 0 9px; }
+  .qa-immersive-stages button i { display: none; }
+
+  .qa-immersive[data-immersive-stage="overview"] > .module-hero {
+    min-height: 210px;
+    padding: 24px 18px 18px;
+  }
+  .qa-immersive[data-immersive-stage="overview"] > .module-hero h1 { font-size: 43px; }
+  .qa-immersive[data-immersive-stage="overview"] > .orientation-grid { padding: 10px 12px; }
+
+  .qa-immersive[data-immersive-stage^="lesson-"] > .lesson-layout {
+    display: flex !important;
+    flex-direction: column;
+    gap: 7px;
+    padding: 8px 10px;
+  }
+  .qa-immersive .lesson-list {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 6px;
+    margin: 0;
+    padding: 0 0 5px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .qa-immersive .lesson-list > .section-kicker { display: none; }
+  .qa-immersive .lesson-list button,
+  .qa-immersive .lesson-list .quiz-jump { flex: 0 0 auto; width: auto; }
+  .qa-immersive .lesson-content { flex: 1 1 auto; height: auto; padding: 20px; border-radius: 14px; }
+  .qa-immersive .lesson-heading h2 { font-size: 27px; }
+
+  .qa-immersive[data-immersive-stage="concepts"] > .concept-section,
+  .qa-immersive[data-immersive-stage^="quiz-"] > .quiz-section,
+  .qa-immersive[data-immersive-stage="case"] > .case-section { padding: 18px 12px; }
+  .qa-immersive .section-heading { margin-bottom: 18px; }
+  .qa-immersive .section-heading h2 { font-size: 25px; }
+  .qa-immersive[data-immersive-stage^="quiz-"] .question-card.qa-immersive-current-question { min-height: auto; padding: 20px; }
+
+  .qa-immersive-footer {
+    grid-template-columns: 44px minmax(90px, 1fr) minmax(135px, 1.7fr);
+    gap: 8px;
+    min-height: 62px;
+    padding: 7px 10px max(7px, env(safe-area-inset-bottom));
+  }
+  .qa-stage-direction { min-height: 42px; padding: 0 10px; }
+  .qa-stage-prev b { display: none; }
+  .qa-stage-prev span { font-size: 18px; }
+  .qa-stage-next b { font-size: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qa-stage-meter > i b { transition: none; }
+}
