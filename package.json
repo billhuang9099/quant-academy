@@ -1,11 +1,16 @@
 {
   "name": "quant-academy",
-  "version": "1.3.0",
+  "version": "4.0.0",
   "private": true,
   "type": "module",
   "description": "量化学堂（GitHub Pages 静态站点）",
   "scripts": {
+    "build": "esbuild src/academy/app.js --bundle --format=iife --target=es2022 --outfile=academy.bundle.js",
     "test": "node --test tests/*.test.js",
-    "check": "node --check src/cloud-sync/app.js && node --check src/cloud-sync/gist.js && node --check src/cloud-sync/model.js && node --check src/learning/app.js && node --check src/learning/catalog.js && node --check src/learning/model.js && node --check src/immersive/app.js && node --check src/immersive/model.js"
+    "check": "node scripts/check.mjs",
+    "test:python": "python3 -m unittest discover -s practice -p 'test_*.py'"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
   }
 }
